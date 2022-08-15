@@ -1,5 +1,5 @@
 {
-  "id": null,
+  "id": 1,
   "type": "character",
   "action": "stand1",
   "emotion": "default",
@@ -79,6 +79,6 @@
   },
   "fhSnap": true,
   "flipX": true,
-  "name": null,
+  "name": "test",
   "includeBackground": true
 }
