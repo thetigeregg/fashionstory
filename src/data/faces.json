@@ -1,0 +1,19 @@
+[
+  {
+    "requiredJobs": ["Beginner"],
+    "isCash": true,
+    "requiredGender": 2,
+    "name": "Kaiser Face",
+    "desc": "",
+    "id": 20076,
+    "typeInfo": {
+      "overallCategory": "Equip",
+      "category": "Character",
+      "subCategory": "Face",
+      "lowItemId": 20000,
+      "highItemId": 29999
+    },
+    "region": "GMS",
+    "version": "234"
+  }
+]
