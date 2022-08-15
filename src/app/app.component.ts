@@ -7,6 +7,8 @@ import HairstylesJson from "../../src/data/hairstyles.json";
 import BaseCharacter from "../../src/data/char.json";
 import { Position } from "src/models/position";
 import FacesJson from "../../src/data/faces.json";
+import BaseScene from "../../src/data/scene.json";
+import { Scene } from "src/models/scene";
 
 @Component({
   selector: "app-root",
@@ -28,7 +30,13 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {}
 
   generateScene(): void {
-    console.log(this.generateCharacters());
+    const characters = this.generateCharacters();
+
+    const scene: Scene = BaseScene;
+    scene.characters = characters;
+    console.log(scene);
+
+    this.saveSceneFile(scene);
   }
 
   generateCharacters(): Character[] {
@@ -81,5 +89,21 @@ export class AppComponent implements OnInit {
     baseCharacter.position = charData.position;
 
     return baseCharacter;
+  }
+
+  saveSceneFile(scene: Scene): void {
+    const sceneBlob = new Blob([JSON.stringify(scene, null, 2)], {
+      type: "application/json"
+    });
+
+    const blobUrl = window.URL.createObjectURL(sceneBlob);
+
+    const link = document.createElement("a");
+    link.setAttribute("target", "_self");
+    link.setAttribute("href", blobUrl);
+    link.setAttribute("download", `fs-scene.json`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
   }
 }
