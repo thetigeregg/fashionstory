@@ -6,6 +6,9 @@
         hairstyle.name
       }}</mat-option>
     </mat-select>
+    <mat-error *ngIf="optionForm.controls.selectedHairstyles.invalid">{{
+      getErrorMessage()
+    }}</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
@@ -15,6 +18,9 @@
         face.name
       }}</mat-option>
     </mat-select>
+    <mat-error *ngIf="optionForm.controls.selectedHairstyles.invalid">{{
+      getErrorMessage()
+    }}</mat-error>
   </mat-form-field>
 
   <button mat-raised-button color="primary" (click)="generateScene()">
