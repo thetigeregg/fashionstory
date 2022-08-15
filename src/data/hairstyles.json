@@ -1,0 +1,19 @@
+[
+  {
+    "requiredJobs": ["Beginner"],
+    "isCash": true,
+    "requiredGender": 2,
+    "name": "Crescendo Hair",
+    "desc": "",
+    "id": 60120,
+    "typeInfo": {
+      "overallCategory": "Equip",
+      "category": "Character",
+      "subCategory": "Hair",
+      "lowItemId": 60000,
+      "highItemId": 69999
+    },
+    "region": "GMS",
+    "version": "234"
+  }
+]
