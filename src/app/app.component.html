@@ -1,16 +1,5 @@
 <div id="page-wrapper" [formGroup]="optionForm">
   <mat-form-field appearance="fill">
-    <mat-label>Character Sex</mat-label>
-    <mat-select formControlName="selectedSex">
-      <mat-option
-        *ngFor="let characterSex of characterSexes"
-        [value]="characterSex"
-        >{{ characterSex }}</mat-option
-      >
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
     <mat-label>Hairstyles</mat-label>
     <mat-select formControlName="selectedHairstyles" multiple>
       <mat-option *ngFor="let hairstyle of hairstyles" [value]="hairstyle">{{

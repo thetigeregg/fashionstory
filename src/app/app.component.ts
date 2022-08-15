@@ -20,10 +20,7 @@ export class AppComponent implements OnInit {
   title = "fashionstory";
   loading = true;
 
-  characterSexes: string[] = ["Male", "Female"];
-
   optionForm = new FormGroup({
-    selectedSex: new FormControl(""),
     selectedHairstyles: new FormControl(""),
     selectedFaces: new FormControl("")
   });
