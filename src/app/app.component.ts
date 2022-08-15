@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Character } from "src/models/character";
 import { Item } from "src/models/item";
 import HairstylesJson from "../../src/data/hairstyles.json";
@@ -23,20 +23,31 @@ export class AppComponent implements OnInit {
   loading = true;
 
   optionForm = new FormGroup({
-    selectedHairstyles: new FormControl(""),
-    selectedFaces: new FormControl("")
+    selectedHairstyles: new FormControl("", [Validators.required]),
+    selectedFaces: new FormControl("", [Validators.required])
   });
 
   ngOnInit(): void {}
 
+  getErrorMessage(): string {
+    return "Required";
+  }
+
   generateScene(): void {
-    const characters = this.generateCharacters();
+    if (this.optionForm.valid) {
+      const characters = this.generateCharacters();
 
-    const scene: Scene = BaseScene;
-    scene.characters = characters;
-    console.log(scene);
+      const scene: Scene = BaseScene;
+      scene.characters = characters;
+      console.log(scene);
 
-    this.saveSceneFile(scene);
+      this.saveSceneFile(scene);
+    } else {
+      Object.keys(this.optionForm.controls).forEach(formControlName => {
+        this.optionForm.get(formControlName)?.markAsDirty();
+        this.optionForm.get(formControlName)?.markAsTouched();
+      });
+    }
   }
 
   generateCharacters(): Character[] {
