@@ -10,5 +10,14 @@
     </mat-select>
   </mat-form-field>
 
+  <mat-form-field appearance="fill">
+    <mat-label>Hairstyles</mat-label>
+    <mat-select formControlName="selectedHairstyles" multiple>
+      <mat-option *ngFor="let hairstyle of hairstyles" [value]="hairstyle">{{
+        hairstyle.name
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
   <button mat-raised-button color="primary">Download scene.json</button>
 </div>
