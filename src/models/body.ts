@@ -5,7 +5,7 @@ export interface Body {
   name: string;
   noIcon: boolean;
   id: number;
-  region: Region;
+  region: string;
   version: string;
   typeInfo: TypeInfo;
 }
